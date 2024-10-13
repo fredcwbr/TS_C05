@@ -14,6 +14,7 @@ class building : public action {
       floorCollection theFloors;    // Floors in the building
       elevCollection theElevators;  // Elevators in the building
    public:
+	  
       int continues(void);
       void perform(void);
       void display(void);

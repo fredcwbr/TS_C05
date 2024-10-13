@@ -12,6 +12,7 @@
 #define NODIRECTION 0   // Value for direction == none
 #define ESCKEY 27       // ASCII value for <Esc> key
 
+
 /* -- Other constants. Okay to change with care. MAXPERSONS is
 limited by available memory--you may not be able to increase this
 value much beyond 1000 or so. Also, be sure to keep MAXELEVS and
@@ -19,12 +20,22 @@ MAXFLOORS within the ranges stated in the comments below. Values
 outside of these ranges may work, but too many floors or elevators 
 will turn the simulation's display to mush. */
 
-#define MAXELEVS 10     // Number of elevators (1 to 10 only)
-#define MAXFLOORS 10    // Number of floors (2 to 10 only)
-#define MAXPERSONS 750  // Maximum people in building
-#define ELEVWAIT 15     // Min. seconds to wait at floors
-#define CAPACITY 24     // Maximum people in an elevator
-#define TRAVELTIME 5    // Seconds to travel between floors
+
+#define DFLT_MAXELEVS 10     // Number of elevators (1 to 10 only)
+#define DFLT_MAXFLOORS 10    // Number of floors (2 to 10 only)
+#define DFLT_MAXPERSONS 750  // Maximum people in building
+#define DFLT_ELEVWAIT 15     // Min. seconds to wait at floors
+#define DFLT_CAPACITY 24     // Maximum people in an elevator
+#define DFLT_TRAVELTIME 5    // Seconds to travel between floors
+#define DFLT_TICDELAY 0
+
+extern int MAXELEVS;     // Number of elevators (1 to 10 only)
+extern int MAXFLOORS;    // Number of floors (2 to 10 only)
+extern int MAXPERSONS;   // Maximum people in building
+extern int ELEVWAIT;      // Min. seconds to wait at floors
+extern int CAPACITY;      // Maximum people in an elevator
+extern int TRAVELTIME;    // Seconds to travel between floors
+extern int TICDELAY;    // Simultation iteration delay (0.1s) ;
 
 /* -- Formulas using rand() function to make various decisions.  Feel
 free adjust these values to alter the simulation. WANTS_TO_ENTER
@@ -57,6 +68,7 @@ extern unsigned avgWait;         // Average no. people waiting
 extern unsigned avgRide;         // Average no. people in elevators
 extern unsigned tookStair;       // Number people who walked
 extern unsigned totalTime;       // Seconds simulation has run
+extern unsigned SIMTIME; 	// Total simulation time
 
 #endif   // __ELEVSIM_H
 

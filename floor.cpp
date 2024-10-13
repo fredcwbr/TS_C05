@@ -15,6 +15,7 @@ Until that happens, the floorNumber field is uninitialized. */
 floor::floor()
 {
    up = down = np = 0;    // Reset up and down buttons
+
 }
 
 /* -- Display a representation of this floor, showing its number and
@@ -70,6 +71,7 @@ the floors in the building. */
 
 floorCollection::floorCollection()
 {
+   fa = new floor[MAXFLOORS];
    for (int i = 0; i < MAXFLOORS; i++)
       fa[i].setFloorNumber(i);   // Assign floor numbers
 }

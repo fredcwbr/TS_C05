@@ -25,7 +25,7 @@ class floor {
 
 class floorCollection {
    private:
-      floor fa[MAXFLOORS];    // Array of floor objects
+      floor *fa;    // Array of floor objects
    public:
       floorCollection();
       void showFloors(persCollection &thePersons);

@@ -15,6 +15,9 @@ public:
 	simWindow() { initscr(); raw(); keypad(stdscr,TRUE); noecho(); refresh();  } ;
 	~simWindow() { endwin(); } ;
 	
+   void disp_suspend() { endwin(); };
+   void disp_resume() { refresh(); };
+	
 	
    void disp_open() { erase(); refresh(); };               // Initialize display package
    void disp_move(int y, int x) { move( y, x ); refresh(); };           // Move to "home" position

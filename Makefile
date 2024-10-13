@@ -1,5 +1,5 @@
 
-OBJECTS= action.o person.o floor.o elevator.o building.o elevsim.o kbhit.o
+OBJECTS= action.o person.o floor.o elevator.o building.o elevsim.o kbhit.o tsargs.o
 
 
 CC  = g++ # Flag for implicit rules

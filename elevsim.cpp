@@ -9,11 +9,23 @@
 #include <unistd.h>
 #endif
 
+#include "tsargs.h"
+
+
 void initDisplay(void);
 
 #include "disp.h"
-
 #include "building.h"
+
+
+int MAXELEVS = DFLT_MAXELEVS;     // Number of elevators (1 to 10 only)
+int MAXFLOORS = DFLT_MAXFLOORS;    // Number of floors (2 to 10 only)
+int MAXPERSONS = DFLT_MAXPERSONS;   // Maximum people in building
+int ELEVWAIT = DFLT_ELEVWAIT;      // Min. seconds to wait at floors
+int CAPACITY = DFLT_CAPACITY;      // Maximum people in an elevator
+int TRAVELTIME = DFLT_TRAVELTIME;    // Seconds to travel between floors
+int TICDELAY  = DFLT_TICDELAY;    // Simultation iteration delay (0.1s) ;
+unsigned SIMTIME = 600;
 
 /* -- Function prototype used only by main() */
 
@@ -36,10 +48,12 @@ building theAction;        // Building simulation object
 /* -- Note: Enable one of the optional sleep() or msleep() statements
 below to slow the simulation on a fast system. */
 
-int main()
+int main(int argc, char **argv)
 {
 int ch; 
+   if( TSargs::init(argc,argv) == -1 ) exit( -1 );
 	
+   theAction.setTime(  SIMTIME  );
    srand(time(NULL));   // Randomize random-number generator
    initDisplay();       // Initialize the display
    theAction.display(); // Display the elevators and labels
@@ -50,9 +64,11 @@ while the building object (named theAction) returns true through
 its `continues()' function. */
 
    while (theAction.continues()) {
-                // 1 real second == 1 simulated second
-//      msleep(250);       // 1/4 real second = 1 simulated second
-//      msleep(125);       // 1/8 real second = 1 simulated second
+	   if( TICDELAY > 0 ) 
+		   usleep(TICDELAY * 100000 );
+    // 1 real second == 1 simulated second
+	//      msleep(250);       // 1/4 real second = 1 simulated second
+	//      msleep(125);       // 1/8 real second = 1 simulated second
       theAction.perform(); // Perform all simulation actions
       theAction.display(); // Update the display
    }

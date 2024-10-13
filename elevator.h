@@ -14,7 +14,7 @@ class elevator {
       int floorNumber;        // Current floor number
       int stopped;            // 1 == stopped at floor
       int direction;          // 1 == up, -1 == down, 0 == none
-      int buttons[MAXFLOORS]; // Flr buttons (0 == off, 1 == on)
+      int *buttons; // Flr buttons (0 == off, 1 == on)
       int passengers;         // Number of passengers on board
       int buttonUp(void);
       int buttonDown(void);
@@ -31,7 +31,7 @@ class elevator {
 
 class elevCollection {
    private:
-      elevator ea[MAXELEVS];  // Array of elevator objects
+      elevator *ea;  // Array of elevator objects
    public:
       elevCollection();
       void showElevators(void);

@@ -172,6 +172,19 @@ int person::discharge(int elevNumber, int floorNumber)
       return FALSE;              // Person did not exit
 }
 
+
+
+persCollection::persCollection(){
+	pa =  new person[MAXPERSONS] ;
+	
+}
+
+persCollection::~persCollection(){
+	delete( pa );
+	
+}
+
+
 /* -- Call action() function for every person. Runs once for every
 tick of the simulation's clock. */
 

@@ -27,8 +27,10 @@ class person {
 
 class persCollection {
    private:
-      person pa[MAXPERSONS];  // Array of person objects
+      person *pa;  // Array of person objects
    public:
+	  persCollection();
+	  ~persCollection();
       void action(void);
       void numWaiting(int floorNumber, int &nup, int &ndn);
       int loadAny(int elevNumber, 

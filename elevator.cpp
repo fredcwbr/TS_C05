@@ -29,6 +29,7 @@ elevator::elevator()
    
 /* -- Reset all floor buttons inside elevator. */
 
+   buttons = new int[MAXFLOORS];
    for (int i = 0; i < MAXFLOORS; i++)
       buttons[i] = 0;
 }
@@ -240,6 +241,7 @@ elevCollection comes into being. */
 
 elevCollection::elevCollection()
 {
+   ea = new elevator[MAXELEVS];
    for (int i = 0; i < MAXELEVS; i++)
       ea[i].setelevNumber(i);          // Assign elevator numbers
 }
