@@ -12,6 +12,9 @@ DEPS := $(OBJS:.o=.d)
 sim0teste: $(OBJECTS)
 	$(CC)  $^ -o $@ $(LDFLAGS)
 
+simulate: sim0teste
+	./sim0teste -l 10 -p 350 -m 10 -y 1 -t 2 -R 600
+
 
 -include $(DEPS)
 
